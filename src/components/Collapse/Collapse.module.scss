@@ -1,0 +1,24 @@
+.collapse {
+    .heading {
+        padding: 20px;
+        font-weight: 700;
+        cursor: pointer;
+        justify-content: space-between;
+        display: flex;
+        flex-basis: 100%;
+    }
+    .content {
+        background: #fff;
+        padding: 10px 20px;
+    }
+
+    i {
+        font-style: normal;
+    }
+
+    &.up {
+        i {
+            transform: rotate(-180deg);
+        }       
+    }
+}

@@ -1,0 +1,21 @@
+.keywords {
+    min-height: calc(100vh - 120px);
+    background-color: #fcfcfc;
+    padding: 50px 100px;
+
+    .search {
+        margin-bottom: 20px;
+    }
+
+    .content {
+        display: flex;
+        
+        div {
+            &:first-child {
+                flex-basis: 30%;
+                margin-right: 20px;
+            }
+            flex-basis: 70%;
+        }
+    }
+}
