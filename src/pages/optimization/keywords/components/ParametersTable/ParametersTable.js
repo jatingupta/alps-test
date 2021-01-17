@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import Filter from "../Filter/Filter";
 import { Table } from "../../../../../components"; 
 
@@ -10,13 +8,10 @@ import styles from "./ParametersTable.module.scss";
 const ParametersTable = ({
     parameters,
     isLoading,
-    error
+    error,
+    onFilterChange,
+    filter
 }) => {
-    const [filter, setFilter] = useState(null);
-
-    const onFilterChange = (filter) => {
-        setFilter(filter);
-    }
 
     if (isLoading) {
         return <div>Loading...</div>

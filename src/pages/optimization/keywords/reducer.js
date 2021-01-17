@@ -16,12 +16,15 @@ const keywordsReducer = (state = Keywords, action) => {
         case KeywordsActions.FETCH_KEYWORD_INFORMATION:
             return {
                 ...state,
+                information: {},
                 errorInformation: "",
                 isLoadingInformation: true
             };
         case KeywordsActions.FETCH_KEYWORD_PARAMETERS:
             return {
                 ...state,
+                parameters: [],
+                scores: [],
                 errorParameters: "",
                 isLoadingParameters: true
             };

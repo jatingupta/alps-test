@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import KeywordInformation from "./components/KeywordInformation/KeywordInformation";
 import ParametersTable from "./components/ParametersTable/ParametersTable";
 
@@ -9,6 +11,8 @@ const KeywordOptimization = (props) => {
 
     const handleKeywordSearch = (searchTerm = "") => {
         if (!searchTerm) return;
+        // clear any filters - if kept in reducer then clear from there
+        setFilter("");
         const { fetchKeywordInformation, fetchKeywordParameters } = props;
         fetchKeywordInformation(searchTerm);
         fetchKeywordParameters(searchTerm);
@@ -22,6 +26,12 @@ const KeywordOptimization = (props) => {
         errorInformation,
         errorParameters
     } = props;
+
+    const [filter, setFilter] = useState(null);
+
+    const onFilterChange = (filter) => {
+        setFilter(filter);
+    }
 
     const initialState = !(isLoadingInformation || isLoadingParameters || parameters.length);
 
@@ -46,6 +56,8 @@ const KeywordOptimization = (props) => {
                             parameters={parameters}
                             isLoading={isLoadingParameters}
                             error={errorParameters}
+                            onFilterChange={onFilterChange}
+                            filter={filter}
                         />
                     </div>
                 ) : (
